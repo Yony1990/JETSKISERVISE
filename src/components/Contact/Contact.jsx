@@ -122,6 +122,7 @@ export default function Contact() {
           <p>
             © {new Date().getFullYear()} <strong>Mobile Jetski Service</strong> · South Florida's Mobile PWC Specialist Since 2010
           </p>
+          <p>Developed by <a target="_blank" href="https://yony1990.github.io/portafolio/">Yony1990</a></p>
         </div>
 
       </div>

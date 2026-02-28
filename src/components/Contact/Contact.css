@@ -306,6 +306,11 @@
   font-family: var(--font-display);
 }
 
+.contact__footer p a {
+  color: var(--accent);
+  font-family: var(--font-display);
+}
+
 /* ============================================
    RESPONSIVE
    ============================================ */
