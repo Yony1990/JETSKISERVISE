@@ -337,7 +337,7 @@
   right: 12px;
   background: var(--bg);
   border-radius: 50px;
-  box-shadow: var(--neo-shadow-sm);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.639);
   padding: 6px 12px;
   font-family: var(--font-display);
   font-size: 0.7rem;
