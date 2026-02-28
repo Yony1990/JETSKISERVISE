@@ -55,6 +55,11 @@
   color: var(--wa-green);
 }
 
+.wa-float__btn:hover ~ .wa-float__tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .wa-float__btn:active {
   box-shadow: var(--neo-inset), 0 0 20px rgba(37,211,102,0.15);
   transform: scale(0.95);
@@ -62,6 +67,8 @@
 
 /* Tooltip */
 .wa-float__tooltip {
+  position: absolute;
+  bottom: 70px;
   background: var(--bg);
   border-radius: var(--border-radius-sm);
   box-shadow: var(--neo-shadow);
@@ -79,10 +86,10 @@
   pointer-events: none;
 }
 
-.wa-float:hover .wa-float__tooltip {
+/* .wa-float:hover .wa-float__tooltip {
   opacity: 1;
   transform: translateX(0);
-}
+} */
 
 /* Mobile */
 @media (max-width: 480px) {
@@ -94,5 +101,8 @@
     width: 52px;
     height: 52px;
     font-size: 1.4rem;
+  }
+  .wa-float__tooltip {
+    bottom: 60px;
   }
 }

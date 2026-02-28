@@ -372,4 +372,17 @@
   .hero__stats { gap: 20px; }
   .hero__stat-num { font-size: 1.6rem; }
   .hero__badge-card { display: none; }
+  .hero__scroll { 
+
+    bottom: 60px; 
+    
+  }
+  .hero__scroll span {
+    position: relative;
+    left: -150px;
+  }
+  .hero__scroll-line {
+    position: relative;
+    left: -150px;
+  }
 }

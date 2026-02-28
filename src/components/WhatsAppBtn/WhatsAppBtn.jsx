@@ -9,9 +9,9 @@ export default function WhatsAppBtn() {
 
   return (
     <div className="wa-float">
-      <span className="wa-float__tooltip">
+      {/* <span className="wa-float__tooltip">
         <i className="bi bi-whatsapp"></i> Chat with Us
-      </span>
+      </span> */}
       <a
         className="wa-float__btn"
         href={waLink}
@@ -21,6 +21,10 @@ export default function WhatsAppBtn() {
       >
         <i className="bi bi-whatsapp"></i>
       </a>
+
+      <span className="wa-float__tooltip">
+        <i className="bi bi-whatsapp"></i> Chat with Us
+      </span>
     </div>
   )
 }
