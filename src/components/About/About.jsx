@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from 'react'
 import './About.css'
+import miVideo from '../../assets/videos/video.mp4'
 
 const FEATURES = [
   {
@@ -20,6 +21,7 @@ const FEATURES = [
 ]
 
 export default function About() {
+  
   const videoRef = useRef(null)
   const sectionRef = useRef(null)
   const [muted, setMuted] = useState(true)
@@ -110,7 +112,7 @@ export default function About() {
                 playsInline
                 style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
               >
-                <source src="/videos/video.mp4" type="video/mp4" />
+                <source src={miVideo} type="video/mp4" />
               </video>
 
               {/* Overlay controls — aparecen en hover */}

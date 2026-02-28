@@ -1,11 +1,11 @@
 import './WhatsAppBtn.css'
 
 // ⚠️ Replace with your real WhatsApp number
-const WA_NUMBER = '13055550000'
-const WA_MESSAGE = encodeURIComponent('Hi! I need jet ski repair service. Can you help?')
+const WA_NUMBER = '+013059041514'
+const WA_MESSAGE = encodeURIComponent("Hi! My jet ski needs repair and I'd like to schedule a mobile service visit as soon as possible. I'm located in [City]. When are you available?")
 
 export default function WhatsAppBtn() {
-  const waLink = `https://wa.me/${"+013059041514"}?text=${"Hi! My jet ski needs repair and I'd like to schedule a mobile service visit as soon as possible. I'm located in [City]. When are you available?"}`
+  const waLink = `https://wa.me/${WA_NUMBER}?text=${WA_MESSAGE}`
 
   return (
     <div className="wa-float">
