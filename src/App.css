@@ -1,0 +1,441 @@
+/* =============================================
+   GLOBAL DESIGN SYSTEM — NEOMORPHISM
+   Base color: #1f222b
+   ============================================= */
+
+:root {
+  /* --- Color Palette --- */
+  --bg:           #1f222b;
+  --bg-light:     #252931;
+  --bg-dark:      #191c24;
+  --shadow-light: #2a2e39;
+  --shadow-dark:  #14161d;
+
+  /* Neomorphism shadows */
+  --neo-shadow:
+    8px 8px 16px var(--shadow-dark),
+    -8px -8px 16px var(--shadow-light);
+  --neo-shadow-sm:
+    4px 4px 10px var(--shadow-dark),
+    -4px -4px 10px var(--shadow-light);
+  --neo-shadow-lg:
+    12px 12px 24px var(--shadow-dark),
+    -12px -12px 24px var(--shadow-light);
+  --neo-inset:
+    inset 4px 4px 10px var(--shadow-dark),
+    inset -4px -4px 10px var(--shadow-light);
+  --neo-inset-sm:
+    inset 2px 2px 6px var(--shadow-dark),
+    inset -2px -2px 6px var(--shadow-light);
+
+  /* --- Accent Colors --- */
+  --accent:       #00c8ff;
+  --accent-dim:   #0099cc;
+  --accent-glow:  rgba(0, 200, 255, 0.18);
+  --accent-glow-strong: rgba(0, 200, 255, 0.35);
+  --gold:         #f0a500;
+  --gold-dim:     #c88600;
+  --success:      #00e676;
+  --wa-green:     #25D366;
+  --wa-green-dark:#128C7E;
+
+  /* --- Text --- */
+  --text-primary:   #e8eaf0;
+  --text-secondary: #9da3b4;
+  --text-muted:     #636878;
+  --text-accent:    #00c8ff;
+
+  /* --- Typography --- */
+  --font-display: 'Rajdhani', sans-serif;
+  --font-body:    'Exo 2', sans-serif;
+
+  /* --- Spacing --- */
+  --section-pad: 100px 0;
+  --container-width: 1200px;
+  --border-radius: 16px;
+  --border-radius-sm: 10px;
+  --border-radius-lg: 24px;
+
+  /* --- Transitions --- */
+  --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-fast: all 0.15s ease;
+  --transition-slow: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ---- Reset & Base ---- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-dark); }
+::-webkit-scrollbar-thumb { background: var(--accent-dim); border-radius: 3px; }
+
+/* ---- Typography ---- */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* ---- Container ---- */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ============================================
+   REUSABLE NEO COMPONENTS
+   ============================================ */
+
+/* --- Neo Card --- */
+.neo-card {
+  background: var(--bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--neo-shadow);
+  padding: 32px;
+  transition: var(--transition);
+}
+
+.neo-card:hover {
+  box-shadow: var(--neo-shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* --- Neo Box --- */
+.neo-box {
+  background: var(--bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--neo-shadow-sm);
+  padding: 24px;
+}
+
+/* ============================================
+   BUTTONS — NEOMORPHISM PRESS EFFECT
+   ============================================ */
+
+/* Primary Button */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg);
+  color: var(--accent);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  padding: 14px 28px;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: var(--neo-shadow);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--border-radius-sm);
+  background: linear-gradient(135deg, var(--accent-glow), transparent);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.btn-primary:hover::before { opacity: 1; }
+.btn-primary:hover {
+  color: var(--accent);
+  box-shadow: var(--neo-shadow-lg), 0 0 20px var(--accent-glow);
+}
+.btn-primary:active {
+  box-shadow: var(--neo-inset);
+  transform: scale(0.97);
+}
+
+/* Secondary Button */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg);
+  color: var(--text-secondary);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  padding: 14px 28px;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: var(--neo-shadow);
+  transition: var(--transition);
+}
+.btn-secondary:hover {
+  color: var(--text-primary);
+  box-shadow: var(--neo-shadow-lg);
+}
+.btn-secondary:active {
+  box-shadow: var(--neo-inset);
+  transform: scale(0.97);
+}
+
+/* CTA / Schedule Button (Gold accent) */
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg);
+  color: var(--gold);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  padding: 13px 26px;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: var(--neo-shadow);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.btn-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--border-radius-sm);
+  background: linear-gradient(135deg, rgba(240,165,0,0.12), transparent);
+  opacity: 0;
+  transition: var(--transition);
+}
+.btn-cta:hover::before { opacity: 1; }
+.btn-cta:hover {
+  box-shadow: var(--neo-shadow-lg), 0 0 18px rgba(240,165,0,0.25);
+  color: var(--gold);
+}
+.btn-cta:active {
+  box-shadow: var(--neo-inset);
+  transform: scale(0.96);
+}
+
+/* Nav Button */
+.btn-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg);
+  color: var(--text-secondary);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  padding: 10px 18px;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: var(--neo-shadow-sm);
+  transition: var(--transition);
+}
+.btn-nav:hover {
+  color: var(--accent);
+  box-shadow: var(--neo-shadow), 0 0 12px var(--accent-glow);
+}
+.btn-nav.active {
+  color: var(--accent);
+  box-shadow: var(--neo-inset-sm);
+}
+
+/* Icon Button */
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--bg);
+  color: var(--text-secondary);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  box-shadow: var(--neo-shadow-sm);
+  transition: var(--transition);
+  font-size: 1.1rem;
+}
+.btn-icon:hover {
+  color: var(--accent);
+  box-shadow: var(--neo-shadow), 0 0 12px var(--accent-glow);
+}
+.btn-icon:active {
+  box-shadow: var(--neo-inset-sm);
+  transform: scale(0.95);
+}
+
+/* ============================================
+   SECTION TITLES
+   ============================================ */
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.section-tag::before,
+.section-tag::after {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.5;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+.section-title span {
+  color: var(--accent);
+}
+
+.section-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  max-width: 600px;
+  line-height: 1.8;
+}
+
+/* Divider line */
+.section-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  border-radius: 2px;
+  margin-bottom: 32px;
+}
+
+/* ============================================
+   ACCENT CHIP / BADGE
+   ============================================ */
+.neo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg);
+  border-radius: 50px;
+  padding: 6px 16px;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  box-shadow: var(--neo-shadow-sm);
+  color: var(--text-secondary);
+}
+.neo-badge.accent { color: var(--accent); }
+.neo-badge.gold   { color: var(--gold); }
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 10px var(--accent-glow); }
+  50%       { box-shadow: 0 0 30px var(--accent-glow-strong), 0 0 60px var(--accent-glow); }
+}
+@keyframes slideWave {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes ripple {
+  0%   { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+@keyframes menuSlideIn {
+  from { transform: translateX(-100%); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.animate-fadeInUp   { animation: fadeInUp 0.7s ease forwards; }
+.animate-fadeInLeft { animation: fadeInLeft 0.7s ease forwards; }
+.animate-fadeInRight{ animation: fadeInRight 0.7s ease forwards; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+.delay-6 { animation-delay: 0.6s; }
+
+.text-accent   { color: var(--accent); }
+.text-gold     { color: var(--gold); }
+.text-muted    { color: var(--text-muted); }
+.text-secondary{ color: var(--text-secondary); }
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+@media (max-width: 768px) {
+  .neo-card { padding: 24px; }
+  .btn-primary, .btn-secondary, .btn-cta { padding: 12px 22px; font-size: 0.9rem; }
+  .section-title { font-size: clamp(1.6rem, 6vw, 2.2rem); }
+}

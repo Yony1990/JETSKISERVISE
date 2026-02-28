@@ -1,0 +1,170 @@
+/* ============================================
+   SERVICES SECTION
+   ============================================ */
+.services {
+  padding: var(--section-pad);
+  position: relative;
+}
+
+.services::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 80% 20%, rgba(0,200,255,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 10% 80%, rgba(240,165,0,0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.services__header {
+  text-align: center;
+  margin-bottom: 64px;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.services__header .section-subtitle {
+  margin: 0 auto;
+}
+
+/* Services grid */
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.service-card {
+  background: var(--bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--neo-shadow);
+  padding: 32px 28px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeInUp 0.7s ease forwards;
+  cursor: default;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.service-card:hover {
+  box-shadow: var(--neo-shadow-lg), 0 0 30px rgba(0,200,255,0.07);
+  transform: translateY(-4px);
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+/* Large featured card */
+.service-card--featured {
+  grid-column: span 1;
+  background: var(--bg);
+  border-radius: var(--border-radius);
+}
+
+.service-card__icon-wrap {
+  width: 60px;
+  height: 60px;
+  background: var(--bg);
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--neo-shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--accent);
+  margin-bottom: 20px;
+  transition: var(--transition);
+  position: relative;
+}
+
+.service-card:hover .service-card__icon-wrap {
+  box-shadow: var(--neo-shadow), 0 0 20px var(--accent-glow);
+  transform: rotate(-5deg) scale(1.05);
+}
+
+.service-card__title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  letter-spacing: 0.03em;
+}
+
+.service-card__desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.service-card__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.service-card__list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.service-card__list li i {
+  color: var(--accent);
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* Bottom CTA row */
+.services__cta {
+  text-align: center;
+  padding: 40px;
+  background: var(--bg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--neo-shadow);
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 0.5s forwards;
+}
+
+.services__cta p {
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  font-size: 1.05rem;
+}
+
+.services__cta-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+  .services__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .services__grid { grid-template-columns: 1fr; }
+}

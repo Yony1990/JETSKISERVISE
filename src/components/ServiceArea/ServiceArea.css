@@ -1,0 +1,243 @@
+/* ============================================
+   SERVICE AREA SECTION
+   ============================================ */
+.service-area {
+  padding: var(--section-pad);
+  position: relative;
+  overflow: hidden;
+}
+
+.service-area__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* Text */
+.service-area__text {
+  opacity: 0;
+  animation: fadeInLeft 0.8s ease forwards;
+}
+
+.service-area__tagline {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+  line-height: 1.8;
+  font-style: italic;
+}
+
+.service-area__tagline strong {
+  color: var(--accent);
+  font-style: normal;
+}
+
+/* City pills */
+.service-area__cities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.city-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg);
+  border-radius: 50px;
+  padding: 8px 16px;
+  box-shadow: var(--neo-shadow-sm);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+  transition: var(--transition);
+}
+
+.city-pill:hover {
+  color: var(--accent);
+  box-shadow: var(--neo-shadow), 0 0 10px var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+.city-pill i {
+  font-size: 0.7rem;
+  color: var(--accent);
+}
+
+/* Info boxes */
+.service-area__info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.area-info-box {
+  background: var(--bg);
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--neo-shadow-sm);
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: var(--transition);
+}
+
+.area-info-box:hover {
+  box-shadow: var(--neo-shadow);
+  transform: translateX(4px);
+}
+
+.area-info-box__icon {
+  width: 44px;
+  height: 44px;
+  background: var(--bg);
+  border-radius: 10px;
+  box-shadow: var(--neo-shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.area-info-box__text strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 3px;
+}
+
+.area-info-box__text span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Map visual */
+.service-area__map {
+  opacity: 0;
+  animation: fadeInRight 0.8s ease 0.2s forwards;
+  position: relative;
+}
+
+.service-area__map-wrap {
+  background: var(--bg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--neo-shadow-lg);
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-area__map-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(0,200,255,0.05) 0%, transparent 70%);
+}
+
+/* Florida map SVG illustration */
+.florida-map {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.florida-outline {
+  fill: none;
+  stroke: rgba(0,200,255,0.25);
+  stroke-width: 1.5;
+}
+
+.florida-fill {
+  fill: rgba(0,200,255,0.04);
+}
+
+.coverage-zone {
+  fill: rgba(0,200,255,0.1);
+  stroke: rgba(0,200,255,0.4);
+  stroke-width: 1;
+  stroke-dasharray: 5 4;
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+.map-city-dot {
+  fill: var(--accent);
+  filter: drop-shadow(0 0 4px var(--accent));
+}
+
+.map-city-dot--home {
+  fill: var(--gold);
+  filter: drop-shadow(0 0 6px var(--gold));
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+.map-city-label {
+  fill: var(--text-secondary);
+  font-family: var(--font-display);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* Route line */
+.map-route {
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 4;
+  fill: none;
+  opacity: 0.5;
+  stroke-dashoffset: 1000;
+  animation: drawRoute 3s ease forwards 0.5s;
+}
+
+@keyframes drawRoute {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Range badges */
+.map-range {
+  position: absolute;
+  background: var(--bg);
+  border-radius: 8px;
+  box-shadow: var(--neo-shadow-sm);
+  padding: 8px 12px;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.map-range--top {
+  z-index: 10;
+  top: 16px;
+  right: 16px;
+  color: var(--accent);
+}
+
+.map-range--bottom {
+  bottom: 16px;
+  right: 16px;
+  color: var(--text-muted);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 900px) {
+  .service-area__inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .service-area__map { order: 2; }
+  .service-area__text { order: 1; }
+}
