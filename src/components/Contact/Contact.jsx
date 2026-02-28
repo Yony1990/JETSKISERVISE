@@ -4,7 +4,7 @@ import './Contact.css'
 const WA_NUMBER = '13059041514'
 const WA_MESSAGE = encodeURIComponent("Hi! My jet ski needs repair and I'd like to schedule a mobile service visit as soon as possible. I'm located in [City]. When are you available?")
 const IG_HANDLE = '@mobilejetskiservice'
-const IG_URL = 'https://instagram.com/mobilejetskiservice'
+const IG_URL = 'https://www.instagram.com/mobilejetskiservice?igsh=MTJxcHZodm5qN3VnYQ=='
 
 export default function Contact() {
   const waLink = `https://wa.me/${WA_NUMBER}?text=${WA_MESSAGE}`
