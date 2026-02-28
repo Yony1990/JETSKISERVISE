@@ -47,7 +47,10 @@ const SERVICES = [
 
 export default function Services() {
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-  const waLink = `https://wa.me/${"+013059041514"}?text=${"Hi! My jet ski needs repair and I'd like to schedule a mobile service visit as soon as possible. I'm located in [City]. When are you available?"}`
+  // const waLink = `https://wa.me/${"+013059041514"}?text=${"Hi! My jet ski needs repair and I'd like to schedule a mobile service visit as soon as possible. I'm located in [City]. When are you available?"}`
+  const WA_NUMBER = '13059041514'
+  const WA_MESSAGE = encodeURIComponent("Hi! My jet ski needs repair and I'd like to schedule a mobile service visit as soon as possible. I'm located in [City]. When are you available?")
+  const waLink = `https://wa.me/${WA_NUMBER}?text=${WA_MESSAGE}`
 
   return (
     <section id="services" className="services">
