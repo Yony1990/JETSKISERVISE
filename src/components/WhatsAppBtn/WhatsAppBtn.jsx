@@ -1,7 +1,7 @@
 import './WhatsAppBtn.css'
 
 // ⚠️ Replace with your real WhatsApp number
-const WA_NUMBER = '+013059041514'
+const WA_NUMBER = '+13059041514'
 const WA_MESSAGE = encodeURIComponent("Hi! My jet ski needs repair and I'd like to schedule a mobile service visit as soon as possible. I'm located in [City]. When are you available?")
 
 export default function WhatsAppBtn() {
