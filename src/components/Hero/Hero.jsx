@@ -115,10 +115,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      {/* <div className="hero__scroll" onClick={() => scrollTo('about')}>
-        <span>Scroll</span>
-        <div className="hero__scroll-line"></div>
-      </div> */}
+      
       {showScroll && (
         <div className="hero__scroll" onClick={() => scrollTo('about')}>
           <span>Scroll</span>

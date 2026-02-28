@@ -227,8 +227,10 @@
 }
 
 @media (max-width: 480px) {
-  .about__float-card,
-  .about__brands { display: none; }
+  /* .about__float-card,
+  .about__brands { display: none; } */
+  .about__float-card { right: -40px; bottom: 30px; scale: .7; }
+  .about__brands { left: -35px; top: 0px; scale: .7; }
 }
 
 /* ============================================
